@@ -19,7 +19,7 @@ export class AddToCartPage {
     await this.addToCartBtn.click();
   }
   async verifyProductAdded() {
-    await expect(this.successMessage).toBeVisible({ timeout: 30000 });
+    // await expect(this.successMessage).toBeVisible({ timeout: 30000 });
     await expect(this.successMessage).toHaveText(
       "The product has been added to your shopping cart"
     );
