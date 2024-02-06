@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:headed": "npx playwright test --headed ./e2e/nopCommerceTest/",
-    "test:ui": "npx playwright test --ui ./e2e/nopCommerceTest/",
+    "test:ui": "npx playwright test ./e2e/nopCommerceTest/",
     "test:trace": "npx playwright test --headed --trace on ./e2e/nopCommerceTest/",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix"
