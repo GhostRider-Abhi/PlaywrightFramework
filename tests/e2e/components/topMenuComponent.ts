@@ -29,7 +29,7 @@ export class TopMenuComponent {
   async selectProduct(
     mainMenuName: string,
     subMenuName: string,
-    productName: string
+    productName: string,
   ) {
     await this.selectMainMenu(mainMenuName);
     await this.selectSubMenu(subMenuName);

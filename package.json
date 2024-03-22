@@ -8,7 +8,10 @@
     "test:ui": "npx playwright test ./e2e/nopCommerceTest/",
     "test:trace": "npx playwright test --headed --trace on ./e2e/nopCommerceTest/",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix"
+    "lint-fix": "npx eslint . --fix",
+    "format-check": "npx prettier . --check",
+    "format": "npx prettier . --write",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,10 @@
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-playwright": "^0.22.2",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   }
 }

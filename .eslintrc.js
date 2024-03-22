@@ -5,19 +5,21 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:playwright/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:playwright/recommended',
+    'prettier',
   ],
 
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2021,
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   rules: {
-    quotes: ["error", "single"],
-    semi: ["error", "always"],
-    "no-console": "error",
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    'no-console': 'error',
+    'no-duplicate-imports': 'error',
   },
 };
