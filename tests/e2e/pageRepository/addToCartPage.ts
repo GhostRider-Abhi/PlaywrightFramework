@@ -9,7 +9,7 @@ export class AddToCartPage {
     })
     .first();
   private readonly successMessage: Locator = this.page.locator(
-    '.bar-notification p'
+    '.bar-notification p',
   );
 
   constructor(private readonly page: Page) {}
@@ -21,7 +21,7 @@ export class AddToCartPage {
   async verifyProductAdded() {
     await expect(this.successMessage).toBeVisible({ timeout: 30000 });
     await expect(this.successMessage).toHaveText(
-      'The product has been added to your shopping cart'
+      'The product has been added to your shopping cart',
     );
   }
 }
