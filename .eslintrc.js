@@ -17,7 +17,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-console': 'error',
     'no-duplicate-imports': 'error',
