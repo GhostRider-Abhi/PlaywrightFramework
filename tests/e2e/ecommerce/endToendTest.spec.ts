@@ -15,11 +15,13 @@ test('add item to cart and complete payment', async ({ page }) => {
 
   //Select the product
   const allProductsLocator = page.locator('.card-body');
-  await page.waitForLoadState('domcontentloaded');
+  await allProductsLocator.first().waitFor({ state: 'visible' });
 
   const productCount = await allProductsLocator.count();
+  console.log('product count', productCount);
   for (let i = 0; i < productCount; i++) {
     const product = await allProductsLocator.nth(i).locator('b').textContent(); //getting the name of the product
+    console.log('product data', product, productName);
     if (product === productName) {
       await allProductsLocator
         .nth(i)
@@ -28,13 +30,13 @@ test('add item to cart and complete payment', async ({ page }) => {
       break;
     }
   }
-
   //Navigate to cart and validate that product is added
   await page.locator("[routerlink*='cart']").click();
   await page.locator('.cart').first().waitFor(); //waiting for cart to load
 
   const cartProduct = page.locator(`h3:has-text('${productName}')`);
-  await expect(cartProduct).toBeVisible();
+  await cartProduct.waitFor({ state: 'visible' });
+  // await expect(cartProduct).toBeVisible();
 
   //Navigate to checkout
   await page.getByRole('button', { name: 'Checkout' }).click();
