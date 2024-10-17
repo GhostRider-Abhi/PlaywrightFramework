@@ -33,11 +33,8 @@ test('add item to cart and complete payment', async ({ page }) => {
   await page.locator("[routerlink*='cart']").click();
   await page.locator('.cart').first().waitFor(); //waiting for cart to load
 
-  const cartProduct = await page
-    .locator(`h3:has-text('${productName}')`)
-    .isVisible();
-  console.log('bool for pro', cartProduct);
-  expect(cartProduct).toBeTruthy();
+  const cartProduct = page.locator(`h3:has-text('${productName}')`);
+  await expect(cartProduct).toBeVisible();
 
   //Navigate to checkout
   await page.getByRole('button', { name: 'Checkout' }).click();
