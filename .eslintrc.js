@@ -18,7 +18,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     semi: ['error', 'always'],
-    'no-console': 'error',
+    'no-console': 'off',
     'no-duplicate-imports': 'error',
   },
 };
