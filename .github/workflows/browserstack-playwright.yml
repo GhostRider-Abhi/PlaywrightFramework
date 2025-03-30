@@ -1,0 +1,26 @@
+name: Run Playwright Tests on BrowserStack
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  browserstack-playwright:
+    runs-on: ubuntu-latest  # Use Ubuntu for best compatibility
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Fetch latest code
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Ensure correct Node.js version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Tests on BrowserStack
+        run: npx browserstack-node-sdk playwright test --debug --config=./playwright.config.test.ts --debug
