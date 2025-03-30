@@ -15,6 +15,7 @@ testData.forEach(data => {
     await page.waitForTimeout(2000);
     await page.locator('#passwordField').fill(data.password);
     await page.getByRole('button', { name: 'Login', exact: true }).click();
+    await page.waitForTimeout(3000);
     await page.waitForLoadState('load');
     const profile = page.getByText('View profile');
     await page.waitForURL('**/homepage');
