@@ -1,0 +1,13 @@
+userName: abhibhatt1
+accessKey: pHc8eARsYhbRhdsJofRA
+projectName: BrowserStack Samples
+buildName: browserstack-build-${{ github.run_id }} # Use a unique build name
+debug: true
+networkLogs: true
+consoleLogs: verbose
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: chrome
+    browserVersion: latest
+    resolution: '1920x1080'

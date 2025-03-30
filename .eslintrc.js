@@ -20,5 +20,6 @@ module.exports = {
     semi: ['error', 'always'],
     'no-console': 'off',
     'no-duplicate-imports': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

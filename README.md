@@ -61,3 +61,14 @@ Git Husky is a tool that allows you to add pre-commit and pre-push hooks to your
 
 * husky init : The init command simplifies setting up husky in a project. It creates a pre-commit script in .husky/ and updates the prepare script in package.json. Modifications can be made later to suit your workflow.
   \*- npx husky init
+
+# API mocking
+
+-Key Methods
+page.route(url, handler): Intercepts requests matching the given URL pattern.
+url: A string or regex pattern for matching requests.
+handler(route, request): A function to handle the intercepted request.
+
+- route.continue(): Proceeds with the request.
+- route.abort(): Aborts the request.
+- route.fulfill(options): Responds with mock data.
