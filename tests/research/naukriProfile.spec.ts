@@ -19,8 +19,9 @@ testData.forEach(data => {
     await page.waitForURL('**/homepage');
     await profile.click();
     await page.waitForLoadState('load');
-    const chatBot = page.locator('.chatBot-ic-cross');
+    const chatBot = page.locator('div.chatBot-ic-cross');
     if (await chatBot.isVisible()) {
+      console.log('Chatbot is visible, clicking to close it');
       await chatBot.click();
     }
     await page.locator('span.edit.icon').nth(0).click();

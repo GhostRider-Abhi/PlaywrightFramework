@@ -1,7 +1,9 @@
 name: Run Playwright Tests on BrowserStack
 
 on:
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+    schedule:
+      - cron: "5 * * * *"  # Runs every hour at 5 minutes past the hour
+    workflow_dispatch:  # Allows manual execution
 
 jobs:
   browserstack-playwright:
