@@ -12,6 +12,7 @@ testData.forEach(data => {
   test(`naukri profile ${data.name}`, async ({ page }) => {
     await page.goto('https://www.naukri.com/nlogin/login');
     await page.fill('#usernameField', data.email);
+    await page.waitForTimeout(2000);
     await page.locator('#passwordField').fill(data.password);
     await page.getByRole('button', { name: 'Login', exact: true }).click();
     await page.waitForLoadState('load');
