@@ -13,6 +13,9 @@ export class CartsPage {
     this.cartItemsNames = this.cartItems.locator('h3');
     this.elementUtil = new ElementUtils(page);
   }
+  async waitForCartItems(): Promise<void> {
+    await this.cartItems.waitFor({ state: 'visible' });
+  }
 
   async getSelectedProductCount(): Promise<number> {
     return this.elementUtil.getElementCount(this.cartItems);

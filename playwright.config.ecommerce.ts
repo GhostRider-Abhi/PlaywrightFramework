@@ -5,7 +5,7 @@ const devconfig: PlaywrightTestConfig = {
   ...defineConfig,
   testDir: './tests/e2e/ecommerce/tests',
   timeout: 30000,
-  workers: process.env.BROWSERSTACK ? 3 : undefined,
+  workers: process.env.BROWSERSTACK ? 5 : undefined,
   maxFailures: 0, // Don't stop on failures
   retries: 1,
   fullyParallel: true,
