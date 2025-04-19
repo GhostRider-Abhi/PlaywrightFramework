@@ -1,10 +1,14 @@
-userName: abhibhatt1
-accessKey: pHc8eARsYhbRhdsJofRA
-projectName: BrowserStack Samples
+userName: abhibhatt_MNIJYP
+accessKey: NnpVRxvZp5ehfgs2Et8H
+projectName: Playwright Framework
 buildName: browserstack-build-${{ github.run_id }} # Use a unique build name
 debug: true
 networkLogs: true
 consoleLogs: verbose
+runSettings:
+  timeout: 1800 # 30 minute timeout
+  maxParallelSessions: 5 # Increase parallel sessions
+  retries: 1 # Automatic retries for flaky tests
 platforms:
   - os: Windows
     osVersion: 11

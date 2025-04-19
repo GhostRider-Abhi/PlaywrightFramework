@@ -10,6 +10,7 @@
     "test:trace": "npx playwright test --headed --trace on ./e2e/ecommerce/",
     "devTest": "npx playwright test --headed --config=playwright.config.dev.ts",
     "local": "npx playwright test --headed ./e2e/ecommerce/",
+    "ecommTest": "npx playwright test --headed --config=playwright.config.ecommerce.ts",
     "test:naukriCron": "npx browserstack-node-sdk playwright test --debug --config=./playwright.config.test.ts",
     "lint": "npx eslint .",
     "lint-fix": "npx eslint . --fix",

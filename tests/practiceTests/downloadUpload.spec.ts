@@ -1,4 +1,6 @@
 import test, { expect } from '@playwright/test';
+import path from 'path';
+import fs from 'fs';
 
 test('download file', async ({ page }) => {
   await page.goto(
@@ -10,9 +12,14 @@ test('download file', async ({ page }) => {
     page.waitForEvent('download'),
     page.locator('button[type="button"]').click(), //Downloaded files are deleted when the browser context that produced them is closed.
   ]);
-
   const fileName = download.suggestedFilename();
-  await download.saveAs(fileName);
+  console.log('File name:', fileName);
+  const filePath = path.join(__dirname, 'downloads', fileName);
+  console.log('File path:', filePath);
+  await download.saveAs(filePath);
+
+  expect(fs.existsSync(filePath)).toBeTruthy(); // File exists
+  expect(fs.statSync(filePath).size).toBeGreaterThan(0); // Not empty
 });
 
 test('upload file', async ({ page }) => {
