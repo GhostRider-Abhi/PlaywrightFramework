@@ -7,16 +7,19 @@ on:
 
 jobs:
   browserstack-playwright:
-    runs-on: ubuntu-latest  # Use Ubuntu for best compatibility
+    # Only run if repository variable is true
+    if: vars.RUN_SCHEDULED_TESTS == 'true'
+    
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Fetch latest code
+        uses: actions/checkout@v4
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Ensure correct Node.js version
+          node-version: 18
 
       - name: Install Dependencies
         run: npm install
