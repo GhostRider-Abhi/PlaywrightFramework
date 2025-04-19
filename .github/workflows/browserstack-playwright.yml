@@ -1,7 +1,9 @@
 name: Run Playwright Tests on BrowserStack
 
 on:
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+  schedule:
+    - cron: "5 * * * *"  # Runs every hour at 5 minutes past the hour
+  workflow_dispatch:  # Allows manual execution
 
 jobs:
   browserstack-playwright:
@@ -23,4 +25,4 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Tests on BrowserStack
-        run: npx browserstack-node-sdk playwright test --debug --config=./playwright.config.test.ts --debug
+        run: npx browserstack-node-sdk playwright test --debug --config=./playwright.config.ecommerce.ts --debug

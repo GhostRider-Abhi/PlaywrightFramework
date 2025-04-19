@@ -3,7 +3,9 @@ import defineConfig from './playwright.config';
 
 const devconfig: PlaywrightTestConfig = {
   ...defineConfig,
-  testDir: './tests/practiceTests',
+  testDir: './tests/e2e/ecommerce/tests',
+  workers: 5,
+  fullyParallel: true,
 };
 
 export default devconfig;
