@@ -17,6 +17,7 @@ export class DashboardPage {
   }
 
   async selectRandomProduct(): Promise<void> {
+    await this.AddToCartButton.first().waitFor({ state: 'visible' });
     const numOfProducts = await this.AddToCartButton.count();
     const randomNum = Math.floor(Math.random() * numOfProducts);
     await this.AddToCartButton.nth(randomNum).click();
@@ -25,6 +26,7 @@ export class DashboardPage {
     return await this.toolTip.textContent();
   }
   async verifyProductAddedToCart(): Promise<void> {
+    await this.cartButtonLabel.waitFor({ state: 'visible' });
     const numOfItem = await this.cartButtonLabel.textContent();
     expect(parseInt(numOfItem || '0')).toBeGreaterThanOrEqual(1); // Check if the cart has at least one item
   }
