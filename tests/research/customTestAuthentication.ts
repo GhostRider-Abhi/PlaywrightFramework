@@ -6,7 +6,7 @@ export const test = base.extend({
   // Authenticated context will be used for all tests
   context: async ({ browser }, use) => {
     // Create .auth directory if it doesn't exist
-    const authDir = path.join(process.cwd(), 'playwright', '.auth');
+    const authDir = path.join(__dirname, 'storageState', '.auth');
     if (!fs.existsSync(authDir)) {
       fs.mkdirSync(authDir, { recursive: true });
     }
@@ -25,12 +25,11 @@ export const test = base.extend({
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    await page.goto('https://rahulshettyacademy.com/client');
-
-    // Fill login form - ensure these selectors are correct
-    await page.locator('#userEmail').fill('ghostrider1289@gmail.com');
-    await page.locator('#userPassword').fill('Ghost@1234');
-    await page.locator('#login').click();
+    await page.goto('https://www.naukri.com/nlogin/login');
+    await page.fill('#usernameField', 'bhattabhishek11@gmail.com');
+    await page.locator('#passwordField').fill('Naukri@1289');
+    await page.getByRole('button', { name: 'Login', exact: true }).click();
+    await page.waitForLoadState('load');
 
     // Add proper wait for successful login
     await page.waitForTimeout(3000); // Adjust this as needed
@@ -51,7 +50,7 @@ export const test = base.extend({
 
   page: async ({ context }, use) => {
     const page = await context.newPage();
-    await page.goto('https://rahulshettyacademy.com/client');
+    await page.goto('https://www.naukri.com/nlogin/login');
     await use(page);
   },
 });
