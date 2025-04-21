@@ -6,7 +6,7 @@ export const test = base.extend({
   // Authenticated context will be used for all tests
   context: async ({ browser }, use) => {
     // Create .auth directory if it doesn't exist
-    const authDir = path.join(__dirname, 'storageState1', '.auth');
+    const authDir = path.join(__dirname, 'storageState', '.auth');
     if (!fs.existsSync(authDir)) {
       fs.mkdirSync(authDir, { recursive: true });
     }
