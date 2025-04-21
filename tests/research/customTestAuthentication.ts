@@ -6,7 +6,7 @@ export const test = base.extend({
   // Authenticated context will be used for all tests
   context: async ({ browser }, use) => {
     // Create .auth directory if it doesn't exist
-    const authDir = path.join(__dirname, 'storageState', '.auth');
+    const authDir = path.join(__dirname, 'storageState1', '.auth');
     if (!fs.existsSync(authDir)) {
       fs.mkdirSync(authDir, { recursive: true });
     }
@@ -48,9 +48,9 @@ export const test = base.extend({
     await use(newContext);
   },
 
-  // page: async ({ context }, use) => {
-  //   const page = await context.newPage();
-  //   await page.goto('https://www.naukri.com/nlogin/login');
-  //   await use(page);
-  // },
+  page: async ({ context }, use) => {
+    const page = await context.newPage();
+    await page.goto('https://www.naukri.com/nlogin/login');
+    await use(page);
+  },
 });
