@@ -48,9 +48,9 @@ export const test = base.extend({
     await use(newContext);
   },
 
-  page: async ({ context }, use) => {
-    const page = await context.newPage();
-    await page.goto('https://www.naukri.com/nlogin/login');
-    await use(page);
-  },
+  // page: async ({ context }, use) => {
+  //   const page = await context.newPage();
+  //   await page.goto('https://www.naukri.com/nlogin/login');
+  //   await use(page);
+  // },
 });
