@@ -1,6 +1,6 @@
 import test, { expect } from '@playwright/test';
 
-test('Interacting with new window', async ({ page }) => {
+test('Interacting with new popup window', async ({ page }) => {
   await page.goto(
     'https://www.lambdatest.com/selenium-playground/window-popup-modal-demo',
   );
@@ -13,7 +13,7 @@ test('Interacting with new window', async ({ page }) => {
   expect(tab.url()).toContain('twitter');
 });
 
-test('Interacting with multiple windows', async ({ page }) => {
+test('Interacting with multiple popup windows', async ({ page }) => {
   await page.goto(
     'https://www.lambdatest.com/selenium-playground/window-popup-modal-demo',
   );

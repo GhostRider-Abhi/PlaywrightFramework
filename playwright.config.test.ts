@@ -1,18 +1,15 @@
-import { defineConfig } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
+import defineConfig from './playwright.config';
 
-export default defineConfig({
-  testDir: './tests/research',
-  use: {
-    browserName: 'chromium',
-    headless: false, // Change to false if needed
-    viewport: { width: 1920, height: 1080 },
-  },
-  projects: [
-    {
-      name: 'chrome',
-      use: {
-        browserName: 'chromium',
-      },
-    },
-  ],
-});
+const devconfig: PlaywrightTestConfig = {
+  ...defineConfig,
+  testDir: './tests/research/',
+  testMatch: /.*\.spec\.ts/,
+  timeout: 30000,
+  workers: process.env.BROWSERSTACK ? 5 : undefined,
+  maxFailures: 0, // Don't stop on failures
+  retries: 1,
+  fullyParallel: true,
+};
+
+export default devconfig;
